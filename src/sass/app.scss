@@ -1,5 +1,5 @@
 // Importar fontes
-@import url('https://fonts.googleapis.com/css?family=Hind+Guntur');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Rubik');
 
 // Importar variáveis
 @import 'variables';
@@ -11,7 +11,6 @@
 // @import 'layouts/login';
 
 // Importar componentes
-@import 'components/form/form';
 @import 'components/struct/header';
 @import 'components/struct/footer';
 
@@ -20,160 +19,76 @@
 }
 
 html{
-    font-family: 'Hind Guntur', sans-serif;
-    color: $preto;
+    font-family: 'Rubik', sans-serif;
+    color: $color;
 }
 
 body{
-    background: #DCE4EA;
+    background: $background;
+    padding: 10vh 5vw;
 }
 
+h1, h2{
+    font-weight: normal;
+}
+
+h1{
+    margin-bottom: 5px;
+}
+
+h2{
+    margin-bottom: 15px;
+}
+
+section{
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    transition: .5s all;
+    padding-bottom: 10px;
+    box-sizing: border-box;
+
+    &.opened{
+        height: auto;
+
+        .cortina{
+            display: none;
+        }
+
+        .lertudo{
+            position: relative;
+            margin-top: 20px;
+            display: inline-block;
+        }
+    }
+
+    .cortina{
+        background-image: linear-gradient(transparent , $background 90%);
+        @include absolute_full;
+    }
+
+    .lertudo{
+        position: absolute;
+        bottom: 5px;
+        z-index: 3;
+        white-space: nowrap;
+        left: 5px;
+        color: $secundary;
+        cursor: pointer;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
 p{
-    line-height: 25px;
-    font-size: 14px;
+    line-height: 22px;
+    font-size: 16px;
 }
 
 svg{
-    fill: $preto;
-}
-
-a, .select_span{
-    &.__inema{
-        &:hover{
-            color: $cor_primaria_inema;
-        }
-    }
-
-    &.__sema{
-        &:hover{
-            color: $cor_primaria_sema;
-        }
-    }
-}
-
-.cor_orgao{
-    &.__inema{
-        color: $cor_primaria_inema;
-    }
-
-    &.__sema{
-        color: $cor_primaria_sema;
-    }
-}
-
-.borda_orgao{
-    &.__inema{
-        border-color: $cor_primaria_inema;
-    }
-
-    &.__sema{
-        border-color: $cor_primaria_sema;
-    }
-}
-
-.bkg_orgao{
-    &.__inema{
-        background-color: $cor_primaria_inema;
-    }
-
-    &.__sema{
-        background-color: $cor_primaria_sema;
-    }
-}
-
-ul{
-    list-style: none;
-
-    &.ul_inline{
-        li{
-            display: inline;
-        }
-    }
-}
-
-.mt-30{
-    margin-top: 30px;
-}
-
-.flex{
-    display: flex;
-    flex-flow: row;
-    flex-grow: 1;
+    fill: $color;
 }
 
 @media (max-width: 767.98px) {
-    .flex{
-        flex-wrap: wrap;
-    }
-}
-
-.page_wrap{
-    width: 95vw;
-    max-width: 1375px;
-    background: #FFF;
-    margin: 0 auto;
-}
-
-.leitura{
-    padding: 0 40px 30px;
-
-    h2{
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 25px;
-    }
-
-    p{
-        font-size: 20px;
-        margin-bottom: 25px;
-    }
-}
-
-aside{
-    min-width: 365px;
-    border-left: 1px solid #CCC;
-    padding: 0 40px;
-    box-sizing: border-box;
-
-    .trecho_noticia{
-
-        img{
-            width: 284px;
-            min-width: 100%;
-            min-height: 155px;
-            background: #CCC;
-        }
-
-        time{
-            line-height: 19px;
-            font-size: 14px;
-            display: block;
-        }
-
-        .titulo{
-            line-height: 24px;
-            font-size: 18px;
-            display: block;
-            margin-bottom: 5px;;
-        }
-
-        .trecho{
-            line-height: 19px;
-            font-size: 14px;
-            display: block;
-        }
-
-        a{
-            line-height: 19px;
-            font-size: 14px;
-            text-align: left;
-        }
-    }
-
-    @media (max-width: 767.98px) {
-        &{
-            min-width: 200px;
-            border-left: none;
-        }
-    }
 }
